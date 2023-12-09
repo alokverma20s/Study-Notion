@@ -1,6 +1,6 @@
 // Import necessary modules
 import Section from "../models/Section.js";
-import SubSection from "../models/Subsection.js";
+import SubSection from "../models/SubSection.js";
 import { uploadImageToCloudinary } from "../utils/imageUploader.js";
 
 // Create a new sub-section for a given section
