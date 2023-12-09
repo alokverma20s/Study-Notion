@@ -1,23 +1,23 @@
-const express = require("express");
+import express from 'express'
 const app = express();
 
-const userRoutes = require("./routes/User");
-const profileRoutes = require("./routes/Profile");
-const paymentRoutes = require("./routes/Payments");
-const courseRoutes = require("./routes/Course");
+import userRoutes from "./routes/User.js";
+import profileRoutes  from "./routes/Profile.js";
+import paymentRoutes  from "./routes/Payments.js";
+import courseRoutes  from "./routes/Course.js";
 
-const database = require("./config/database");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-const {cloudinaryConnect } = require("./config/cloudinary");
-const fileUpload = require("express-fileupload");
-const dotenv = require("dotenv");
+import {connect}  from "./config/database.js";
+import cookieParser  from "cookie-parser";
+import cors from "cors";
+import {cloudinaryConnect }  from "./config/cloudinary.js";
+import fileUpload  from "express-fileupload";
+import dotenv from "dotenv";
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
 //database connect
-database.connect();
+connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());

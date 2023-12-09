@@ -1,7 +1,7 @@
-const Section = require("../models/Section");
-const Course = require("../models/Course");
+import Section from "../models/Section.js";
+import Course from "../models/Course.js";
 // CREATE a new section
-exports.createSection = async (req, res) => {
+export const createSection = async (req, res) => {
 	try {
 		// Extract the required properties from the request body
 		const { sectionName, courseId } = req.body;
@@ -52,7 +52,7 @@ exports.createSection = async (req, res) => {
 };
 
 // UPDATE a section
-exports.updateSection = async (req, res) => {
+export const updateSection = async (req, res) => {
 	try {
 		const { sectionName, sectionId } = req.body;
 		const section = await Section.findByIdAndUpdate(
@@ -74,7 +74,7 @@ exports.updateSection = async (req, res) => {
 };
 
 // DELETE a section
-exports.deleteSection = async (req, res) => {
+export const deleteSection = async (req, res) => {
 	try {
 		//HW -> req.params -> test
 		const { sectionId } = req.params;

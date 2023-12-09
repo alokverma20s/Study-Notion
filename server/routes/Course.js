@@ -1,47 +1,47 @@
 // Import the required modules
-const express = require("express")
+import express from "express"
 const router = express.Router()
 
 // Import the Controllers
 
 // Course Controllers Import
-const {
+import {
   createCourse,
   getAllCourses,
   getCourseDetails,
-} = require("../controllers/Course")
+} from "../controllers/Course.js"
 
 
 // Categories Controllers Import
-const {
+import {
   showAllCategories,
   createCategory,
   categoryPageDetails,
-} = require("../controllers/Category")
+} from "../controllers/Category.js"
 
 // Sections Controllers Import
-const {
+import {
   createSection,
   updateSection,
   deleteSection,
-} = require("../controllers/Section")
+} from "../controllers/Section.js"
 
 // Sub-Sections Controllers Import
-const {
+import {
   createSubSection,
   updateSubSection,
   deleteSubSection,
-} = require("../controllers/Subsection")
+} from "../controllers/Subsection.js"
 
 // Rating Controllers Import
-const {
+import {
   createRating,
   getAverageRating,
   getAllRating,
-} = require("../controllers/RatingAndReview")
+} from "../controllers/RatingAndReview.js"
 
 // Importing Middlewares
-const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth")
+import { auth, isInstructor, isStudent, isAdmin } from "../middlewares/auth.js"
 
 // ********************************************************************************************************
 //                                      Course routes
@@ -82,4 +82,4 @@ router.post("/createRating", auth, isStudent, createRating)
 router.get("/getAverageRating", getAverageRating)
 router.get("/getReviews", getAllRating)
 
-module.exports = router
+export default router

@@ -1,8 +1,8 @@
-const Profile = require("../models/Profile");
-const User = require("../models/User");
-const { uploadImageToCloudinary } = require("../utils/imageUploader");
+import Profile from "../models/Profile.js";
+import User from "../models/User.js";
+import { uploadImageToCloudinary } from "../utils/imageUploader.js";
 // Method for updating a profile
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
 	try {
 		const { dateOfBirth = "", about = "", contactNumber } = req.body;
 		const id = req.user.id;
@@ -33,7 +33,7 @@ exports.updateProfile = async (req, res) => {
 	}
 };
 
-exports.deleteAccount = async (req, res) => {
+export const deleteAccount = async (req, res) => {
 	try {
 		// TODO: Find More on Job Schedule
 		// const job = schedule.scheduleJob("10 * * * * *", function () {
@@ -67,7 +67,7 @@ exports.deleteAccount = async (req, res) => {
 	}
 };
 
-exports.getAllUserDetails = async (req, res) => {
+export const getAllUserDetails = async (req, res) => {
 	try {
 		const id = req.user.id;
 		const userDetails = await User.findById(id)
@@ -87,7 +87,7 @@ exports.getAllUserDetails = async (req, res) => {
 	}
 };
 
-exports.updateDisplayPicture = async (req, res) => {
+export const updateDisplayPicture = async (req, res) => {
     try {
       const displayPicture = req.files.displayPicture
       const userId = req.user.id
@@ -116,7 +116,7 @@ exports.updateDisplayPicture = async (req, res) => {
     }
 };
   
-exports.getEnrolledCourses = async (req, res) => {
+export const getEnrolledCourses = async (req, res) => {
     try {
       const userId = req.user.id
       const userDetails = await User.findOne({

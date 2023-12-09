@@ -1,6 +1,6 @@
-const Category = require("../models/Category");
+import Category from "../models/Category.js";
 
-exports.createCategory = async (req, res) => {
+export const createCategory = async (req, res) => {
 	try {
 		const { name, description } = req.body;
 		if (!name) {
@@ -25,7 +25,7 @@ exports.createCategory = async (req, res) => {
 	}
 };
 
-exports.showAllCategories = async (req, res) => {
+export const showAllCategories = async (req, res) => {
 	try {
 		const allCategorys = await Category.find({});
 		res.status(200).json({
@@ -42,7 +42,7 @@ exports.showAllCategories = async (req, res) => {
 
 //categoryPageDetails 
 
-exports.categoryPageDetails = async (req, res) => {
+export const categoryPageDetails = async (req, res) => {
     try {
             //get categoryId
             const {categoryId} = req.body;

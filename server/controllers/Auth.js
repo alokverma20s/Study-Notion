@@ -1,16 +1,17 @@
-const bcrypt = require("bcrypt");
-const User = require("../models/User");
-const OTP = require("../models/OTP");
-const jwt = require("jsonwebtoken");
-const otpGenerator = require("otp-generator");
-const mailSender = require("../utils/mailSender");
-const { passwordUpdated } = require("../mail/templates/passwordUpdate");
-const Profile = require("../models/Profile");
-require("dotenv").config();
+import bcrypt from "bcrypt";
+import User from "../models/User.js";
+import OTP from "../models/OTP.js";
+import jwt from "jsonwebtoken";
+import otpGenerator from "otp-generator";
+import mailSender from "../utils/mailSender.js";
+import { passwordUpdated } from "../mail/templates/passwordUpdate.js";
+import Profile from "../models/Profile.js";
+import dotenv from 'dotenv'
+dotenv.config();
 
 // Signup Controller for Registering USers
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
 	try {
 		// Destructure fields from the request body
 		const {
@@ -113,7 +114,7 @@ exports.signup = async (req, res) => {
 };
 
 // Login controller for authenticating users
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
 	try {
 		// Get email and password from request body
 		const { email, password } = req.body;
@@ -179,7 +180,7 @@ exports.login = async (req, res) => {
 	}
 };
 // Send OTP For Email Verification
-exports.sendotp = async (req, res) => {
+export const sendotp = async (req, res) => {
 	try {
 		const { email } = req.body;
 
@@ -226,7 +227,7 @@ exports.sendotp = async (req, res) => {
 };
 
 // Controller for Changing Password
-exports.changePassword = async (req, res) => {
+export const changePassword = async (req, res) => {
 	try {
 		// Get user data from req.user
 		const userDetails = await User.findById(req.user.id);

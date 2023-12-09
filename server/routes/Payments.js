@@ -1,10 +1,10 @@
 // Import the required modules
-const express = require("express")
+import express from "express";
 const router = express.Router()
 
-const { capturePayment, verifySignature } = require("../controllers/Payments")
-const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth")
+import { capturePayment, verifySignature } from "../controllers/Payments.js"
+import { auth, isStudent } from "../middlewares/auth.js"
 router.post("/capturePayment", auth, isStudent, capturePayment)
 router.post("/verifySignature", verifySignature)
 
-module.exports = router
+export default router

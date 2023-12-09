@@ -1,9 +1,9 @@
-const Course = require("../models/Course");
-const Category = require("../models/Category");
-const User = require("../models/User");
-const { uploadImageToCloudinary } = require("../utils/imageUploader");
+import Course from "../models/Course.js";
+import Category from "../models/Category.js";
+import User from "../models/User.js";
+import { uploadImageToCloudinary } from "../utils/imageUploader.js";
 // Function to create a new course
-exports.createCourse = async (req, res) => {
+export const createCourse = async (req, res) => {
 	try {
 		// Get user ID from request object
 		const userId = req.user.id;
@@ -120,7 +120,7 @@ exports.createCourse = async (req, res) => {
 	}
 };
 
-exports.getAllCourses = async (req, res) => {
+export const getAllCourses = async (req, res) => {
 	try {
 		const allCourses = await Course.find(
 			{},
@@ -150,7 +150,7 @@ exports.getAllCourses = async (req, res) => {
 };
 
 //getCourseDetails
-exports.getCourseDetails = async (req, res) => {
+export const getCourseDetails = async (req, res) => {
     try {
             //get id
             const {courseId} = req.body;

@@ -1,5 +1,5 @@
 // Import the Mongoose library
-const mongoose = require("mongoose");
+import mongoose  from "mongoose";
 
 // Define the user schema using the Mongoose Schema constructor
 const userSchema = new mongoose.Schema(
@@ -75,4 +75,4 @@ const userSchema = new mongoose.Schema(
 );
 
 // Export the Mongoose model for the user schema, using the name "user"
-module.exports = mongoose.model("user", userSchema);
+export default mongoose.model("user", userSchema);

@@ -1,9 +1,9 @@
-const User = require("../models/User");
-const mailSender = require("../utils/mailSender");
-const bcrypt = require("bcrypt");
-const crypto = require("crypto");
+import User from "../models/User.js";
+import mailSender from "../utils/mailSender.js";
+import bcrypt from "bcrypt";
+import crypto from "crypto";
 
-exports.resetPasswordToken = async (req, res) => {
+export const resetPasswordToken = async (req, res) => {
 	try {
 		const email = req.body.email;
 		const user = await User.findOne({ email: email });
@@ -47,7 +47,7 @@ exports.resetPasswordToken = async (req, res) => {
 	}
 };
 
-exports.resetPassword = async (req, res) => {
+export const resetPassword = async (req, res) => {
 	try {
 		const { password, confirmPassword, token } = req.body;
 

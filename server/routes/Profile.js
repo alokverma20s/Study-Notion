@@ -1,13 +1,13 @@
-const express = require("express")
+import express from "express";
 const router = express.Router()
-const { auth } = require("../middlewares/auth")
-const {
+import { auth } from "../middlewares/auth.js"
+import {
   deleteAccount,
   updateProfile,
   getAllUserDetails,
   updateDisplayPicture,
   getEnrolledCourses,
-} = require("../controllers/Profile")
+} from "../controllers/Profile.js"
 
 // ********************************************************************************************************
 //                                      Profile routes
@@ -20,4 +20,4 @@ router.get("/getUserDetails", auth, getAllUserDetails)
 router.get("/getEnrolledCourses", auth, getEnrolledCourses)
 router.put("/updateDisplayPicture", auth, updateDisplayPicture)
 
-module.exports = router
+export default router
