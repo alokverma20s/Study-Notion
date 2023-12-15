@@ -120,7 +120,7 @@ export const verifySignature = async (req, res) => {
                     });
                 }
 
-                console.log(enrolledCourse);
+                // console.log(enrolledCourse);
 
                 //find the student andadd the course to their list enrolled courses me 
                 const enrolledStudent = await User.findOneAndUpdate(
@@ -129,7 +129,7 @@ export const verifySignature = async (req, res) => {
                                                 {new:true},
                 );
 
-                console.log(enrolledStudent);
+                // console.log(enrolledStudent);
 
                 //mail send krdo confirmation wala 
                 const emailResponse = await mailSender(
@@ -138,7 +138,7 @@ export const verifySignature = async (req, res) => {
                                         "Congratulations, you are onboarded into new CodeHelp Course",
                 );
 
-                console.log(emailResponse);
+                // console.log(emailResponse);
                 return res.status(200).json({
                     success:true,
                     message:"Signature Verified and COurse Added",
